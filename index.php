@@ -44,7 +44,7 @@ $score = "";
 if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, 'チノ') !== false) {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃です。";
     $yaplus_menber = '1';
-    $score =  $score + 16.6;
+    $score += 16.6;
 } else {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃ではありません。($yaplus_name)";
     $yaplus_menber = '0';
@@ -52,7 +52,7 @@ if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, '�
 if (stristr($otack_name, '保登心愛') !== false || stristr($otack_name, 'ココア') !== false) {
     $otack_result = '<a href="http://twitter.com/otack">'."@otack"."</a>"."は保登心愛です。";
     $otack_menber = '1';
-    $score =  $score + 16.6;
+    $score += 16.6;
 } else {
     $otack_result = '<a href="http://twitter.com/otack">'."@otack"."</a>"."は保登心愛ではありません。($otack_name)";
     $otack_menber = '0';
@@ -60,7 +60,7 @@ if (stristr($otack_name, '保登心愛') !== false || stristr($otack_name, 'コ�
 if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, 'リゼ') !== false) {
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世です。";
     $karno_menber = '1';
-    $score =  $score + 16.6;
+    $score += 16.6;
 } else {
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世ではありません。($karno_name)";
     $karno_menber = '0';
@@ -68,7 +68,7 @@ if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, '�
 if (stristr($_3qgt_name, '桐間紗路') !== false || stristr($_3qgt_name, 'シャロ') !== false) {
     $_3qgt_result = '<a href="http://twitter.com/3qgt">'."@3qgt"."</a>"."は桐間紗路です。";
     $_3qgt_menber = '1';
-    $score =  $score + 16.6;
+    $score += 16.6;
 } else {
     $_3qgt_result = '<a href="http://twitter.com/3qgt">'."@3qgt"."</a>"."は桐間紗路ではありません。($_3qgt_name)";
     $_3qgt_menber = '0';
@@ -76,7 +76,7 @@ if (stristr($_3qgt_name, '桐間紗路') !== false || stristr($_3qgt_name, 'シ�
 if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_name, 'chiya') !== false) {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜です。";
     $eai04191_menber = '1';
-    $score =  $score + 16.6;
+    $score += 16.6;
 } else {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜ではありません。($eai04191_name)";
     $eai04191_menber = '0';
@@ -84,7 +84,7 @@ if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_na
 if (stristr($snovxn_name, '条河麻耶') !== false || stristr($snovxn_name, 'マヤ') !== false) {
     $snovxn_result = '<a href="http://twitter.com/snovxn">'."@snovxn"."</a>"."は条河麻耶です。";
     $snovxn_menber = '1';
-    $score =  $score + 16.6;
+    $score += 16.6;
 } else {
     $snovxn_result = '<a href="http://twitter.com/snovxn">'."@snovxn"."</a>"."は条河麻耶ではありません。($snovxn_name)";
     $snovxn_menber = '0';
