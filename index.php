@@ -217,10 +217,10 @@ if ($otack_menber == '1') {
 ?>
 }
 .alert-rize {
-background-color: #9468ED;
+background-color: #8E71E7;
 <?php
 if ($karno_menber == '1') {
-  echo "border-color: #9468ED;\n";
+  echo "border-color: #8E71E7;\n";
 } else {
 }
 ?>
