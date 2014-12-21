@@ -1,25 +1,35 @@
+<!--<div class="marquee blink"><h1>なんか動かんスマン</h1></div>
+<p>直してください おねがいします<a href="https://github.com/eai04191/status.gochiusa.net">https://github.com/eai04191/status.gochiusa.net</a></p>-->
 <?php
 date_default_timezone_set('Asia/Tokyo');
 header("Content-Type: text/html; charset=UTF-8");
 $time_start = microtime(true);
 
-include 'fetch_multi_url.php';
-$names = array();$icon_urls = array();$matches = array();$score = '';//なぜか外すと動かなくなる😠
+$names = array();$icon_urls = array();$matches = array();$score = '';
 
-    //並列実行したいPHP
-    $url_list = array(
-        'https://mobile.twitter.com/yaplus',
-        'https://mobile.twitter.com/otack',
-        'https://mobile.twitter.com/karno',
-        'https://mobile.twitter.com/3qgt',
-        'https://mobile.twitter.com/eai04191',
-        'https://mobile.twitter.com/snovxn',
-        'https://mobile.twitter.com/yonex',
-        );
-    //実行
+include 'getMultiCotents.php';
 
-    $res = fetch_multi_url($url_list);
-    
+$url_list = array(
+    'https://mobile.twitter.com/yaplus',
+    'https://mobile.twitter.com/otack',
+    'https://mobile.twitter.com/karno',
+    'https://mobile.twitter.com/3qgt',
+    'https://mobile.twitter.com/eai04191',
+    'https://mobile.twitter.com/snovxn',
+    'https://mobile.twitter.com/yonex',
+    );
+
+$results = getMultiContents($url_list);
+
+$res[] = $results['https://mobile.twitter.com/yaplus']['content'];
+$res[] = $results['https://mobile.twitter.com/otack']['content'];
+$res[] = $results['https://mobile.twitter.com/karno']['content'];
+$res[] = $results['https://mobile.twitter.com/3qgt']['content'];
+$res[] = $results['https://mobile.twitter.com/eai04191']['content'];
+$res[] = $results['https://mobile.twitter.com/snovxn']['content'];
+$res[] = $results['https://mobile.twitter.com/yonex']['content'];
+
+$pattern1 = '#<title>(.*?) \(@[a-z0-9_]{1,15}\)さんはTwitterを利用しています</title>#i';
 $pattern2 = '@<img alt="[^"]*+" src="(https://pbs.twimg.com/profile_images/\d++/\w++.*)" />@';
 
 foreach ($res as $tmp) {
@@ -27,20 +37,19 @@ foreach ($res as $tmp) {
   array_push ($icon_urls,$matches[1]);
 }
 
-$pattern = '#<title>(.*?) \(@[a-z0-9_]{1,15}\) on Twitter</title>#i';
-preg_match($pattern,$res[0],$matches);
+preg_match($pattern1,$res[0],$matches);
 $yaplus_name =  ($matches[1]);
-preg_match($pattern,$res[1],$matches);
+preg_match($pattern1,$res[1],$matches);
 $otack_name =  ($matches[1]);
-preg_match($pattern,$res[2],$matches);
+preg_match($pattern1,$res[2],$matches);
 $karno_name =  ($matches[1]);
-preg_match($pattern,$res[3],$matches);
+preg_match($pattern1,$res[3],$matches);
 $_3qgt_name =  ($matches[1]);
-preg_match($pattern,$res[4],$matches);
+preg_match($pattern1,$res[4],$matches);
 $eai04191_name =  ($matches[1]);
-preg_match($pattern,$res[5],$matches);
+preg_match($pattern1,$res[5],$matches);
 $snovxn_name =  ($matches[1]);
-preg_match($pattern,$res[6],$matches);
+preg_match($pattern1,$res[6],$matches);
 $yonex_name =  ($matches[1]);
 
 $score = "";
@@ -185,8 +194,84 @@ $strtime = substr($time, 0, -10);
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style type="text/css">
+
+@keyframes blink {
+  75% { opacity: 0.0; }
+}
+@-webkit-keyframes blink {
+  75% { opacity: 0.0; }
+}
+.blink {
+  animation: blink 1s step-end infinite;
+  -webkit-animation: blink 1s step-end infinite;
+}
+
+.marquee {
+width:100%;
+padding:0.5em 0;
+overflow:hidden;
+position:relative;
+}
+
+.marquee h1:after {
+content:"";
+white-space:nowrap;
+padding-right:50px;
+}
+
+.marquee h1 {
+margin:0;
+padding-left:100%;
+display:inline-block;
+white-space:nowrap;
+    -webkit-animation-name:marquee;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-duration:5s;
+    -webkit-animation-iteration-count:infinite;
+    -moz-animation-name:marquee;
+    -moz-animation-timing-function:linear;
+    -moz-animation-duration:5s;
+    -moz-animation-iteration-count:infinite;
+    -ms-animation-name:marquee;
+    -ms-animation-timing-function:linear;
+    -ms-animation-duration:5s;
+    -ms-animation-iteration-count:infinite;
+    -o-animation-name:marquee;
+    -o-animation-timing-function:linear;
+    -o-animation-duration:5s;
+    -o-animation-iteration-count:infinite;
+    animation-name:marquee;
+    animation-timing-function:linear;
+    animation-duration:5s;
+    animation-iteration-count:infinite;
+}
+@-webkit-keyframes marquee {
+  from   { -webkit-transform: translate(0%);}
+  99%,to { -webkit-transform: translate(-100%);}
+}
+@-moz-keyframes marquee {
+  from   { -moz-transform: translate(0%);}
+  99%,to { -moz-transform: translate(-100%);}
+}
+@-ms-keyframes marquee {
+  from   { -ms-transform: translate(0%);}
+  99%,to { -ms-transform: translate(-100%);}
+}
+@-o-keyframes marquee {
+  from   { -o-transform: translate(0%);}
+  99%,to { -o-transform: translate(-100%);}
+}
+@keyframes marquee {
+  from   { transform: translate(0%);}
+  99%,to { transform: translate(-100%);}
+}
+
+
 #loading {
 display:none;
+}
+@media screen and (min-width: 500px) {
+  .br-sp { display:none; }
 }
 .alert {
   border-color: red;
@@ -220,7 +305,7 @@ if ($otack_menber == '1') {
 background-color: #8E71E7;
 <?php
 if ($karno_menber == '1') {
-  echo "border-color: #8E71E7;\n";
+  echo "border-color: #9468ED;\n";
 } else {
 }
 ?>
@@ -283,7 +368,7 @@ if ($yonex_menber == '1') {
           <li><a href="#">Contact</a></li>-->
           <li><?php echo(date('c')); ?></li>
         </ul>
-        <h3 class="text-muted">ごちうさ部ステータス</h3>
+        <h3 class="text-muted">ごちうさ部<br class="br-sp">ステータス</h3>
       </div>
         <h1><?php echo $score;?>%</h1>
         <div class="progress">
@@ -311,6 +396,21 @@ if ($yonex_menber == '1') {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<script type="text/JavaScript">
+<!--
+flg=true;
+function Blink(){
+if(flg){
+document.getElementById("blink").style.visibility="visible";
+}else{
+document.getElementById("blink").style.visibility="hidden";
+}
+flg=!flg;
+setTimeout("Blink()",500);
+}
+Blink();
+//-->
+</script>
     <!-- Placed at the end of the document so the pages load faster -->
   </body>
 </html>
