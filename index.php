@@ -151,6 +151,11 @@ $strtime = substr($time, 0, -10);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="ごちうさ部メンバーの安否を確認できます。">
     <meta name="author" content="eai04191">
+    <meta name="date" content="<?php echo(date('c')); ?>" />
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    
     <meta property="og:title" content="ごちうさ部ステータス">
     <meta property="og:type" content="website">
     <meta property="og:description" content="ごちうさ部メンバーの状況を確認できます。">
@@ -159,9 +164,9 @@ $strtime = substr($time, 0, -10);
     <meta property="og:site_name" content="ごちうさ部ステータス">
     <meta property="og:email" content="eai04191@gmail.com">
 
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@eai04191">
-<meta name="twitter:creator" content="@eai04191">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@eai04191">
+    <meta name="twitter:creator" content="@eai04191">
 
     <link rel="shortcut icon" href="/favicon/<?=$favicon?>/favicon.ico">
     <link rel="apple-touch-icon" sizes="57x57" href="/favicon/iphone/apple-touch-icon-57x57.png">
