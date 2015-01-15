@@ -15,31 +15,31 @@ EOM;
 include 'getMultiCotents.php';
 
 $url_list = array(
-    'https://mobile.twitter.com/yaplus',
-    'https://mobile.twitter.com/otack',
-    'https://mobile.twitter.com/karno',
-    'https://mobile.twitter.com/3qgt',
-    'https://mobile.twitter.com/eai04191',
-    'https://mobile.twitter.com/snovxn',
-    'https://mobile.twitter.com/yonex',
+    'https://twitter.com/intent/user?user_id=538308036',
+    'https://twitter.com/intent/user?user_id=64319102',
+    'https://twitter.com/intent/user?user_id=14157941',
+    'https://twitter.com/intent/user?user_id=593144845',
+    'https://twitter.com/intent/user?user_id=873775722',
+    'https://twitter.com/intent/user?user_id=2242284524',
+    'https://twitter.com/intent/user?user_id=241113884',
     );
 
 $results = getMultiContents($url_list);
 
-$res[] = $results['https://mobile.twitter.com/yaplus']['content'];
-$res[] = $results['https://mobile.twitter.com/otack']['content'];
-$res[] = $results['https://mobile.twitter.com/karno']['content'];
-$res[] = $results['https://mobile.twitter.com/3qgt']['content'];
-$res[] = $results['https://mobile.twitter.com/eai04191']['content'];
-$res[] = $results['https://mobile.twitter.com/snovxn']['content'];
-$res[] = $results['https://mobile.twitter.com/yonex']['content'];
+$res[] = $results['https://twitter.com/intent/user?user_id=538308036']['content']; //yaplus
+$res[] = $results['https://twitter.com/intent/user?user_id=64319102']['content']; //otack
+$res[] = $results['https://twitter.com/intent/user?user_id=14157941']['content']; //karno
+$res[] = $results['https://twitter.com/intent/user?user_id=593144845']['content']; //3qgt
+$res[] = $results['https://twitter.com/intent/user?user_id=873775722']['content']; //eai04191
+$res[] = $results['https://twitter.com/intent/user?user_id=2242284524']['content']; //snovxn
+$res[] = $results['https://twitter.com/intent/user?user_id=241113884']['content']; //yonex
 
-$pattern1 = '#<title>(.*?) \(@[a-z0-9_]{1,15}\)さんはTwitterを利用しています</title>#i';
-$pattern2 = '@<img alt="[^"]*+" src="(https://pbs.twimg.com/profile_images/\d++/\w++.*)" />@';
-
+$pattern1 = '#<title>(.*?) \(@[a-z0-9_]{1,15}\) さんはTwitterを使ってます</title>#i';
+$pattern2 = '<img class="photo" src="(.+?)".+?>';
 foreach ($res as $tmp) {
   preg_match ($pattern2,$tmp,$matches);
   if (array_key_exists('1', $matches)) {
+    $matches[1] = str_replace("200x200", "normal", $matches[1]);
     array_push ($icon_urls,$matches[1]);
   } else {
     array_push ($icon_urls,'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAmklEQVR4Ae2UsQrDMAxEX0rx7sG/mw/xX+S7OmQ0hoILpYPpEUE4SpecN4t7SLakBVO3XwAuQKZwpEKGWCuNTiVJJFHpNFYCZRrjfTbSl337RFqURaEzFDHZB51CoMoQxGwfVESa6ozQG84hztkVEdhjhGNXhNr9VvZL8B/R/0a/kfxW9ofJH2d/oSyaBXcehyU+2RXw7618AV5eRLbw9+qXiAAAAABJRU5ErkJgggc1f8e3757d62544003611df9b7dfc691');
