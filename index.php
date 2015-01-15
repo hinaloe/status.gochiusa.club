@@ -5,7 +5,12 @@ date_default_timezone_set('Asia/Tokyo');
 header("Content-Type: text/html; charset=UTF-8");
 $time_start = microtime(true);
 
-$names = array();$icon_urls = array();$matches = array();$score = '';
+$names = array();$icon_urls = array();$matches = array();$score = '';$get_error = '0';
+
+$error_alert = <<< EOM
+<meta http-equiv="refresh" content="3">
+<div class="alert alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
+EOM;
 
 include 'getMultiCotents.php';
 
@@ -34,24 +39,56 @@ $pattern2 = '@<img alt="[^"]*+" src="(https://pbs.twimg.com/profile_images/\d++/
 
 foreach ($res as $tmp) {
   preg_match ($pattern2,$tmp,$matches);
-  array_push ($icon_urls,$matches[1]);
+  if (array_key_exists('1', $matches)) {
+    array_push ($icon_urls,$matches[1]);
+  } else {
+    array_push ($icon_urls,'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAAAmklEQVR4Ae2UsQrDMAxEX0rx7sG/mw/xX+S7OmQ0hoILpYPpEUE4SpecN4t7SLakBVO3XwAuQKZwpEKGWCuNTiVJJFHpNFYCZRrjfTbSl337RFqURaEzFDHZB51CoMoQxGwfVESa6ozQG84hztkVEdhjhGNXhNr9VvZL8B/R/0a/kfxW9ofJH2d/oSyaBXcehyU+2RXw7618AV5eRLbw9+qXiAAAAABJRU5ErkJgggc1f8e3757d62544003611df9b7dfc691');
+    $get_error = '1';
+  }
 }
 
 preg_match($pattern1,$res[0],$matches);
-$yaplus_name =  ($matches[1]);
+  if (array_key_exists('1', $matches)) {
+    $yaplus_name =  ($matches[1]);
+  } else {
+    $yaplus_name = ('取得できませんでした');
+  }
 preg_match($pattern1,$res[1],$matches);
-$otack_name =  ($matches[1]);
+  if (array_key_exists('1', $matches)) {
+    $otack_name =  ($matches[1]);
+  } else {
+    $otack_name = ('取得できませんでした');
+  }
 preg_match($pattern1,$res[2],$matches);
-$karno_name =  ($matches[1]);
+  if (array_key_exists('1', $matches)) {
+    $karno_name =  ($matches[1]);
+  } else {
+    $karno_name = ('取得できませんでした');
+  }
 preg_match($pattern1,$res[3],$matches);
-$_3qgt_name =  ($matches[1]);
+  if (array_key_exists('1', $matches)) {
+    $_3qgt_name =  ($matches[1]);
+  } else {
+    $_3qgt_name = ('取得できませんでした');
+  }
 preg_match($pattern1,$res[4],$matches);
-$eai04191_name =  ($matches[1]);
+  if (array_key_exists('1', $matches)) {
+    $eai04191_name =  ($matches[1]);
+  } else {
+    $eai04191_name = ('取得できませんでした');
+  }
 preg_match($pattern1,$res[5],$matches);
-$snovxn_name =  ($matches[1]);
+  if (array_key_exists('1', $matches)) {
+    $snovxn_name =  ($matches[1]);
+  } else {
+    $snovxn_name = ('取得できませんでした');
+  }
 preg_match($pattern1,$res[6],$matches);
-$yonex_name =  ($matches[1]);
-
+  if (array_key_exists('1', $matches)) {
+    $yonex_name =  ($matches[1]);
+  } else {
+    $yonex_name = ('取得できませんでした');
+  }
 $score = "";
 if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, 'チノ') !== false) {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃です。";
@@ -271,18 +308,11 @@ white-space:nowrap;
   99%,to { transform: translate(-100%);}
 }
 
-
-#loading {
-display:none;
-}
-@media screen and (min-width: 500px) {
-  .br-sp { display:none; }
-}
-.alert {
+#gochiusa.alert {
   border-color: red;
   color: #FFF;
 }
-.alert a {
+#gochiusa.alert a {
   color: #FFF;
 }
 .alert img {
@@ -375,21 +405,27 @@ if ($yonex_menber == '1') {
         </ul>
         <h3 class="text-muted">ごちうさ部<br class="br-sp">ステータス</h3>
       </div>
+      <?php
+      if ($get_error == '1') {
+        echo $error_alert;
+      } else {
+      }
+      ?>
         <h1><?php echo $score;?>%</h1>
         <div class="progress">
           <div class="progress-bar <?php echo $progress_bar_status;?>" role="progressbar" aria-valuenow="<?php echo $score;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $score;?>%;">
             <span class="sr-only"><?php echo $score;?>% Complete</span>
           </div>
         </div>
-        <div class="alert alert-chino" role="alert"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
-        <div class="alert alert-cocoa" role="alert"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
-        <div class="alert alert-rize" role="alert"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
-        <div class="alert alert-syaro" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
-        <div class="alert alert-chiya" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
-        <div class="alert alert-maya" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
-        <div class="alert alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません</div>
-        <div class="alert alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません</div>
-        <div class="alert alert-tippy" role="alert"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-chino" role="alert" id="gochiusa"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
+        <div class="alert alert-cocoa" role="alert" id="gochiusa"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
+        <div class="alert alert-rize" role="alert" id="gochiusa"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
+        <div class="alert alert-syaro" role="alert" id="gochiusa"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
+        <div class="alert alert-chiya" role="alert" id="gochiusa"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
+        <div class="alert alert-maya" role="alert" id="gochiusa"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
+        <div class="alert alert-megu" role="alert" id="gochiusa"><img src="megu.png" width=32px height=32px>いません</div>
+        <div class="alert alert-aoyama" role="alert" id="gochiusa"><img src="aoyama.png" width=32px height=32px>いません</div>
+        <div class="alert alert-tippy" role="alert" id="gochiusa"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. &copy; <a href="http://chiya.tk">chiya.tk</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
