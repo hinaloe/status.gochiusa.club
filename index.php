@@ -9,7 +9,7 @@ $names = array();$icon_urls = array();$matches = array();$score = '';$get_error 
 
 $error_alert = <<< EOM
 <meta http-equiv="refresh" content="3">
-<div class="alert alert-gochiusa alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
+<div class="alert alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
 EOM;
 
 include 'getMultiCotents.php';
@@ -308,11 +308,11 @@ white-space:nowrap;
   99%,to { transform: translate(-100%);}
 }
 
-.gochiusa.alert {
+.alert-gochiusa.alert {
   border-color: red;
   color: #FFF;
 }
-.gochiusa.alert a {
+.alert-gochiusa.alert a {
   color: #FFF;
 }
 .alert img {
@@ -398,9 +398,6 @@ if ($yonex_menber == '1') {
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <!--<li class="active"><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>-->
           <li><?php echo(date('c')); ?></li>
         </ul>
         <h3 class="text-muted">ごちうさ部<br class="br-sp">ステータス</h3>
