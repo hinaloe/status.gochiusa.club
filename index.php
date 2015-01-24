@@ -318,7 +318,7 @@ white-space:nowrap;
 .alert img {
   margin-right: 5px;
 }
-.alert-chino {
+#alert-chino {
 background-color: #4F96FF;
 <?php
 if ($yaplus_menber == '1') {
@@ -327,7 +327,7 @@ if ($yaplus_menber == '1') {
 }
 ?>
 }
-.alert-cocoa {
+#alert-cocoa {
 background-color: #F5A5BE;
 <?php
 if ($otack_menber == '1') {
@@ -336,7 +336,7 @@ if ($otack_menber == '1') {
 }
 ?>
 }
-.alert-rize {
+#alert-rize {
 background-color: #8E71E7;
 <?php
 if ($karno_menber == '1') {
@@ -345,7 +345,7 @@ if ($karno_menber == '1') {
 }
 ?>
 }
-.alert-syaro {
+#alert-syaro {
 background-color: #F4D7A1;
 <?php
 if ($_3qgt_menber == '1') {
@@ -354,7 +354,7 @@ if ($_3qgt_menber == '1') {
 }
 ?>
 }
-.alert-chiya {
+#alert-chiya {
 background-color: #8DB46F;
 <?php
 if ($eai04191_menber == '1') {
@@ -363,7 +363,7 @@ if ($eai04191_menber == '1') {
 }
 ?>
 }
-.alert-maya {
+#alert-maya {
 background-color: #5F74AF;
 <?php
 if ($snovxn_menber == '1') {
@@ -372,15 +372,15 @@ if ($snovxn_menber == '1') {
 }
 ?>
 }
-.alert-megu {
+#alert-megu {
 background-color: #CA354F;
 border-color: #CA354F;
 }
-.alert-aoyama {
+#alert-aoyama {
 background-color: #497487;
 border-color: #497487;
 }
-.alert-tippy {
+#alert-tippy {
 background-color: #8b99cd;
 <?php
 if ($yonex_menber == '1') {
@@ -414,15 +414,15 @@ if ($yonex_menber == '1') {
             <span class="sr-only"><?php echo $score;?>% Complete</span>
           </div>
         </div>
-        <div class="alert alert-gochiusa alert-chino" role="alert"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
-        <div class="alert alert-gochiusa alert-cocoa" role="alert"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
-        <div class="alert alert-gochiusa alert-rize" role="alert"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
-        <div class="alert alert-gochiusa alert-syaro" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
-        <div class="alert alert-gochiusa alert-chiya" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
-        <div class="alert alert-gochiusa alert-maya" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
-        <div class="alert alert-gochiusa alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません</div>
-        <div class="alert alert-gochiusa alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません</div>
-        <div class="alert alert-gochiusa alert-tippy" role="alert"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-gochiusa" id="alert-chino" role="alert"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
+        <div class="alert alert-gochiusa" id="alert-cocoa" role="alert"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
+        <div class="alert alert-gochiusa" id="alert-rize" role="alert"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
+        <div class="alert alert-gochiusa" id="alert-syaro" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
+        <div class="alert alert-gochiusa" id="alert-chiya" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
+        <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
+        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません (参加希望は<a href="twitter.com/yaplus">@yaplus</a>まで。)</div>
+        <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません (参加希望は<a href="twitter.com/yaplus">@yaplus</a>まで。)</div>
+        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. &copy; <a href="http://chiya.tk">chiya.tk</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
