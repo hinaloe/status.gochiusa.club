@@ -420,8 +420,8 @@ if ($yonex_menber == '1') {
         <div class="alert alert-gochiusa" id="alert-syaro" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
         <div class="alert alert-gochiusa" id="alert-chiya" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
         <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
-        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません (参加希望は<a href="twitter.com/yaplus">@yaplus</a>まで。)</div>
-        <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません (参加希望は<a href="twitter.com/yaplus">@yaplus</a>まで。)</div>
+        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
+        <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
         <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
