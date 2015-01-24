@@ -9,7 +9,7 @@ $names = array();$icon_urls = array();$matches = array();$score = '';$get_error 
 
 $error_alert = <<< EOM
 <meta http-equiv="refresh" content="3">
-<div class="alert alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
+<div class="alert alert-gochiusa alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
 EOM;
 
 include 'getMultiCotents.php';
@@ -201,7 +201,7 @@ $strtime = substr($time, 0, -10);
     <meta property="og:site_name" content="ごちうさ部ステータス">
     <meta property="og:email" content="eai04191@gmail.com">
 
-    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@eai04191">
     <meta name="twitter:creator" content="@eai04191">
 
@@ -308,11 +308,11 @@ white-space:nowrap;
   99%,to { transform: translate(-100%);}
 }
 
-#gochiusa.alert {
+.gochiusa.alert {
   border-color: red;
   color: #FFF;
 }
-#gochiusa.alert a {
+.gochiusa.alert a {
   color: #FFF;
 }
 .alert img {
@@ -417,15 +417,15 @@ if ($yonex_menber == '1') {
             <span class="sr-only"><?php echo $score;?>% Complete</span>
           </div>
         </div>
-        <div class="alert alert-chino" role="alert" id="gochiusa"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
-        <div class="alert alert-cocoa" role="alert" id="gochiusa"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
-        <div class="alert alert-rize" role="alert" id="gochiusa"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
-        <div class="alert alert-syaro" role="alert" id="gochiusa"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
-        <div class="alert alert-chiya" role="alert" id="gochiusa"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
-        <div class="alert alert-maya" role="alert" id="gochiusa"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
-        <div class="alert alert-megu" role="alert" id="gochiusa"><img src="megu.png" width=32px height=32px>いません</div>
-        <div class="alert alert-aoyama" role="alert" id="gochiusa"><img src="aoyama.png" width=32px height=32px>いません</div>
-        <div class="alert alert-tippy" role="alert" id="gochiusa"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-gochiusa alert-chino" role="alert"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
+        <div class="alert alert-gochiusa alert-cocoa" role="alert"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
+        <div class="alert alert-gochiusa alert-rize" role="alert"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
+        <div class="alert alert-gochiusa alert-syaro" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
+        <div class="alert alert-gochiusa alert-chiya" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
+        <div class="alert alert-gochiusa alert-maya" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$snovxn_result?></div>
+        <div class="alert alert-gochiusa alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa alert-tippy" role="alert"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. &copy; <a href="http://chiya.tk">chiya.tk</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
