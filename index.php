@@ -422,7 +422,7 @@ if ($yonex_menber == '1') {
         <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="maya.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
         <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
         <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
-        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[6]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. <a href="http://mizle.net">mizle.net</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
