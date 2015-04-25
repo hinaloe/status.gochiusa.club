@@ -83,7 +83,7 @@ preg_match($pattern1,$res[4],$matches);
 //  } else {
 //    $snovxn_name = ('取得できませんでした');
 //  }
-preg_match($pattern1,$res[6],$matches);
+preg_match($pattern1,$res[5],$matches);
   if (array_key_exists('1', $matches)) {
     $yonex_name =  ($matches[1]);
   } else {
