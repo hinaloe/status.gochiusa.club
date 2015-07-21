@@ -337,7 +337,7 @@ if ($otack_menber == '1') {
 ?>
 }
 #alert-rize {
-background-color: #8E71E7;
+background-color: #9468ED;
 <?php
 if ($karno_menber == '1') {
   echo "border-color: #9468ED;\n";
@@ -381,10 +381,10 @@ background-color: #497487;
 border-color: #497487;
 }
 #alert-tippy {
-background-color: #8b99cd;
+background-color: #8D96D0;
 <?php
 if ($yonex_menber == '1') {
-  echo "border-color: #8b99cd;\n";
+  echo "border-color: #8D96D0;\n";
 } else {
 }
 ?>
