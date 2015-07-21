@@ -18,7 +18,7 @@ $url_list = array(
     'https://twitter.com/intent/user?user_id=538308036',
     'https://twitter.com/intent/user?user_id=64319102',
     'https://twitter.com/intent/user?user_id=14157941',
-    'https://twitter.com/intent/user?user_id=593144845',
+    //'https://twitter.com/intent/user?user_id=593144845',
     'https://twitter.com/intent/user?user_id=873775722',
     //'https://twitter.com/intent/user?user_id=2242284524',
     'https://twitter.com/intent/user?user_id=241113884',
@@ -29,7 +29,7 @@ $results = getMultiContents($url_list);
 $res[] = $results['https://twitter.com/intent/user?user_id=538308036']['content']; //yaplus
 $res[] = $results['https://twitter.com/intent/user?user_id=64319102']['content']; //otack
 $res[] = $results['https://twitter.com/intent/user?user_id=14157941']['content']; //karno
-$res[] = $results['https://twitter.com/intent/user?user_id=593144845']['content']; //3qgt
+//$res[] = $results['https://twitter.com/intent/user?user_id=593144845']['content']; //3qgt
 $res[] = $results['https://twitter.com/intent/user?user_id=873775722']['content']; //eai04191
 //$res[] = $results['https://twitter.com/intent/user?user_id=2242284524']['content']; //snovxn
 $res[] = $results['https://twitter.com/intent/user?user_id=241113884']['content']; //yonex
@@ -65,12 +65,12 @@ preg_match($pattern1,$res[2],$matches);
   } else {
     $karno_name = ('取得できませんでした');
   }
-preg_match($pattern1,$res[3],$matches);
-  if (array_key_exists('1', $matches)) {
-    $_3qgt_name =  ($matches[1]);
-  } else {
-    $_3qgt_name = ('取得できませんでした');
-  }
+//preg_match($pattern1,$res[3],$matches);
+//  if (array_key_exists('1', $matches)) {
+//    $_3qgt_name =  ($matches[1]);
+//  } else {
+//    $_3qgt_name = ('取得できませんでした');
+//  }
 preg_match($pattern1,$res[4],$matches);
   if (array_key_exists('1', $matches)) {
     $eai04191_name =  ($matches[1]);
@@ -114,14 +114,14 @@ if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, '�
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世ではありません。($karno_name)";
     $karno_menber = '0';
 }
-if (stristr($_3qgt_name, '桐間紗路') !== false || stristr($_3qgt_name, 'シャロ') !== false) {
-    $_3qgt_result = '<a href="http://twitter.com/3qgt">'."@3qgt"."</a>"."は桐間紗路です。";
-    $_3qgt_menber = '1';
-    $score += 16.66;
-} else {
-    $_3qgt_result = '<a href="http://twitter.com/3qgt">'."@3qgt"."</a>"."は桐間紗路ではありません。($_3qgt_name)";
-    $_3qgt_menber = '0';
-}
+//if (stristr($_3qgt_name, '桐間紗路') !== false || stristr($_3qgt_name, 'シャロ') !== false) {
+//    $_3qgt_result = '<a href="http://twitter.com/3qgt">'."@3qgt"."</a>"."は桐間紗路です。";
+//    $_3qgt_menber = '1';
+//    $score += 16.66;
+//} else {
+//    $_3qgt_result = '<a href="http://twitter.com/3qgt">'."@3qgt"."</a>"."は桐間紗路ではありません。($_3qgt_name)";
+//    $_3qgt_menber = '0';
+//}
 if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_name, 'chiya') !== false) {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜です。";
     $eai04191_menber = '1';
@@ -347,12 +347,7 @@ if ($karno_menber == '1') {
 }
 #alert-syaro {
 background-color: #F4D7A1;
-<?php
-if ($_3qgt_menber == '1') {
-  echo "border-color: #F4D7A1;\n";
-} else {
-}
-?>
+border-color: #F4D7A1;
 }
 #alert-chiya {
 background-color: #8DB46F;
@@ -365,12 +360,7 @@ if ($eai04191_menber == '1') {
 }
 #alert-maya {
 background-color: #5F74AF;
-<?php
-if ($snovxn_menber == '1') {
-  echo "border-color: #5F74AF;\n";
-} else {
-}
-?>
+border-color: #5F74AF;
 }
 #alert-megu {
 background-color: #CA354F;
@@ -417,12 +407,12 @@ if ($yonex_menber == '1') {
         <div class="alert alert-gochiusa" id="alert-chino" role="alert"><img src="<?=$icon_urls[0]?>" width=32px height=32px><?=$yaplus_result?></div>
         <div class="alert alert-gochiusa" id="alert-cocoa" role="alert"><img src="<?=$icon_urls[1]?>" width=32px height=32px><?=$otack_result?></div>
         <div class="alert alert-gochiusa" id="alert-rize" role="alert"><img src="<?=$icon_urls[2]?>" width=32px height=32px><?=$karno_result?></div>
-        <div class="alert alert-gochiusa" id="alert-syaro" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$_3qgt_result?></div>
-        <div class="alert alert-gochiusa" id="alert-chiya" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$eai04191_result?></div>
-        <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="maya.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
-        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
-        <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません (参加希望は<a href="http://twitter.com/yaplus">@yaplus</a>まで。)</div>
-        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-gochiusa" id="alert-syaro" role="alert"><img src="syaro.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa" id="alert-chiya" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$eai04191_result?></div>
+        <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="maya.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. <a href="http://mizle.net">mizle.net</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
