@@ -71,7 +71,7 @@ preg_match($pattern1,$res[2],$matches);
 //  } else {
 //    $_3qgt_name = ('取得できませんでした');
 //  }
-preg_match($pattern1,$res[4],$matches);
+preg_match($pattern1,$res[3],$matches);
   if (array_key_exists('1', $matches)) {
     $eai04191_name =  ($matches[1]);
   } else {
@@ -83,7 +83,7 @@ preg_match($pattern1,$res[4],$matches);
 //  } else {
 //    $snovxn_name = ('取得できませんでした');
 //  }
-preg_match($pattern1,$res[5],$matches);
+preg_match($pattern1,$res[4],$matches);
   if (array_key_exists('1', $matches)) {
     $yonex_name =  ($matches[1]);
   } else {
