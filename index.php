@@ -397,6 +397,9 @@ if ($yonex_menber == '1') {
 }
 ?>
 }
+.nav-pills>li {
+  float: none;
+}
 </style>
 
   </head>
@@ -406,7 +409,7 @@ if ($yonex_menber == '1') {
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li role="presentation"><a href="#"><?=$gochiusanetstatus?></a></li>
+          <li role="presentation"><a href="http://gochiusa.net/"><?=$gochiusanetstatus?></a></li>
           <li role="presentation"><a href="#"><?php echo(date('c')); ?></a></li>
         </ul>
         <h3 class="text-muted">ごちうさ部<br class="br-sp">ステータス</h3>
