@@ -93,7 +93,7 @@ $score = "";
 if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, 'チノ') !== false) {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃です。";
     $yaplus_menber = '1';
-    $score += 16.66;
+    $score += 20;
 } else {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃ではありません。($yaplus_name)";
     $yaplus_menber = '0';
@@ -101,7 +101,7 @@ if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, '�
 if (stristr($otack_name, '保登心愛') !== false || stristr($otack_name, 'ココア') !== false) {
     $otack_result = '<a href="http://twitter.com/otack">'."@otack"."</a>"."は保登心愛です。";
     $otack_menber = '1';
-    $score += 16.66;
+    $score += 20;
 } else {
     $otack_result = '<a href="http://twitter.com/otack">'."@otack"."</a>"."は保登心愛ではありません。($otack_name)";
     $otack_menber = '0';
@@ -109,7 +109,7 @@ if (stristr($otack_name, '保登心愛') !== false || stristr($otack_name, 'コ�
 if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, 'リゼ') !== false) {
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世です。";
     $karno_menber = '1';
-    $score += 16.66;
+    $score += 20;
 } else {
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世ではありません。($karno_name)";
     $karno_menber = '0';
@@ -125,7 +125,7 @@ if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, '�
 if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_name, 'chiya') !== false) {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜です。";
     $eai04191_menber = '1';
-    $score += 16.66;
+    $score += 20;
 } else {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜ではありません。($eai04191_name)";
     $eai04191_menber = '0';
@@ -141,7 +141,7 @@ if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_na
 if (stristr($yonex_name, 'ティッピー') !== false || stristr($yonex_name, 'tippy') !== false) {
     $yonex_result = '<a href="http://twitter.com/yonex">'."@yonex"."</a>"."はティッピーです。";
     $yonex_menber = '1';
-    $score += 16.66;
+    $score += 20;
 } else {
     $yonex_result = '<a href="http://twitter.com/yonex">'."@yonex"."</a>"."はティッピーではありません。($yonex_name)";
     $yonex_menber = '0';
