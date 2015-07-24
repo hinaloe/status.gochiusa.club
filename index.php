@@ -39,6 +39,7 @@ $url_list = array(
     //'https://twitter.com/intent/user?user_id=593144845',
     'https://twitter.com/intent/user?user_id=873775722',
     //'https://twitter.com/intent/user?user_id=2242284524',
+    'https://twitter.com/intent/user?user_id=547406123',
     'https://twitter.com/intent/user?user_id=241113884',
     );
 
@@ -50,6 +51,7 @@ $res[] = $results['https://twitter.com/intent/user?user_id=14157941']['content']
 //$res[] = $results['https://twitter.com/intent/user?user_id=593144845']['content']; //3qgt
 $res[] = $results['https://twitter.com/intent/user?user_id=873775722']['content']; //eai04191
 //$res[] = $results['https://twitter.com/intent/user?user_id=2242284524']['content']; //snovxn
+$res[] = $results['https://twitter.com/intent/user?user_id=547406123']['content']; //su2ca
 $res[] = $results['https://twitter.com/intent/user?user_id=241113884']['content']; //yonex
 
 $pattern1 = '#<title>(.*?) \(@[a-z0-9_]{1,15}\) さんはTwitterを使ってます</title>#i';
@@ -103,6 +105,12 @@ preg_match($pattern1,$res[3],$matches);
 //  }
 preg_match($pattern1,$res[4],$matches);
   if (array_key_exists('1', $matches)) {
+    $su2ca_name =  ($matches[1]);
+  } else {
+    $su2ca_name = ('取得できませんでした');
+  }
+preg_match($pattern1,$res[5],$matches);
+  if (array_key_exists('1', $matches)) {
     $yonex_name =  ($matches[1]);
   } else {
     $yonex_name = ('取得できませんでした');
@@ -111,7 +119,7 @@ $score = "";
 if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, 'チノ') !== false) {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃です。";
     $yaplus_menber = '1';
-    $score += 20;
+    $score += 16.66;
 } else {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃ではありません。($yaplus_name)";
     $yaplus_menber = '0';
@@ -119,7 +127,7 @@ if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, '�
 if (stristr($otack_name, '保登心愛') !== false || stristr($otack_name, 'ココア') !== false) {
     $otack_result = '<a href="http://twitter.com/otack">'."@otack"."</a>"."は保登心愛です。";
     $otack_menber = '1';
-    $score += 20;
+    $score += 16.66;
 } else {
     $otack_result = '<a href="http://twitter.com/otack">'."@otack"."</a>"."は保登心愛ではありません。($otack_name)";
     $otack_menber = '0';
@@ -127,7 +135,7 @@ if (stristr($otack_name, '保登心愛') !== false || stristr($otack_name, 'コ�
 if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, 'リゼ') !== false) {
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世です。";
     $karno_menber = '1';
-    $score += 20;
+    $score += 16.66;
 } else {
     $karno_result = '<a href="http://twitter.com/karno">'."@karno"."</a>"."は天々座理世ではありません。($karno_name)";
     $karno_menber = '0';
@@ -143,7 +151,7 @@ if (stristr($karno_name, '天々座理世') !== false || stristr($karno_name, '�
 if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_name, 'chiya') !== false) {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜です。";
     $eai04191_menber = '1';
-    $score += 20;
+    $score += 16.66;
 } else {
     $eai04191_result = '<a href="http://twitter.com/eai04191">'."@eai04191"."</a>"."は宇治松千夜ではありません。($eai04191_name)";
     $eai04191_menber = '0';
@@ -156,10 +164,18 @@ if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_na
 //    $snovxn_result = '<a href="http://twitter.com/snovxn">'."@snovxn"."</a>"."は条河麻耶ではありません。($snovxn_name)";
 //    $snovxn_menber = '0';
 //}
+if (stristr($su2ca_name, '奈津恵') !== false || stristr($su2ca_name, 'メグ') !== false) {
+    $su2ca_result = '<a href="http://twitter.com/su2ca">'."@su2ca"."</a>"."は奈津恵です。";
+    $su2ca_menber = '1';
+    $score += 16.66;
+} else {
+    $su2ca_result = '<a href="http://twitter.com/su2ca">'."@su2ca"."</a>"."は奈津恵ではありません。($su2ca_name)";
+    $su2ca_menber = '0';
+}
 if (stristr($yonex_name, 'ティッピー') !== false || stristr($yonex_name, 'tippy') !== false) {
     $yonex_result = '<a href="http://twitter.com/yonex">'."@yonex"."</a>"."はティッピーです。";
     $yonex_menber = '1';
-    $score += 20;
+    $score += 16.66;
 } else {
     $yonex_result = '<a href="http://twitter.com/yonex">'."@yonex"."</a>"."はティッピーではありません。($yonex_name)";
     $yonex_menber = '0';
@@ -382,7 +398,12 @@ border-color: #5F74AF;
 }
 #alert-megu {
 background-color: #CA354F;
-border-color: #CA354F;
+<?php
+if ($su2ca_menber == '1') {
+  echo "border-color: #CA354F;\n";
+} else {
+}
+?>
 }
 #alert-aoyama {
 background-color: #497487;
@@ -432,9 +453,9 @@ if ($yonex_menber == '1') {
         <div class="alert alert-gochiusa" id="alert-syaro" role="alert"><img src="syaro.png" width=32px height=32px>いません</div>
         <div class="alert alert-gochiusa" id="alert-chiya" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$eai04191_result?></div>
         <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="maya.png" width=32px height=32px>いません</div>
-        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$su2ca_result?></div>
         <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません</div>
-        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. <a href="http://mizle.net">mizle.net</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
