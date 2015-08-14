@@ -89,7 +89,7 @@ preg_match($pattern1,$res[4],$matches);
   } else {
     $yonex_name = ('取得できませんでした');
   }
-$score = "";
+$score = 0;
 if (stristr($yaplus_name, '香風智乃') !== false || stristr($yaplus_name, 'チノ') !== false) {
     $yaplus_result = '<a href="http://twitter.com/yaplus">'."@yaplus"."</a>"."は香風智乃です。";
     $yaplus_menber = '1';
