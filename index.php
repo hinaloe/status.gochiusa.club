@@ -12,6 +12,24 @@ $error_alert = <<< EOM
 <div class="alert alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
 EOM;
 
+function httpstatuscode($url){
+    $context = stream_context_create(array(
+        'http' => array('ignore_errors' => true)
+    ));
+    $response = file_get_contents($url, false, $context);
+    preg_match('/HTTP\/1\.[0|1|x] ([0-9]{3})/', $http_response_header[0], $matches);
+    $status_code = $matches[1];
+    if ($status_code != 200){
+        return false;
+    }
+    return $response;
+}
+if (httpstatuscode("http://gochiusa.net/")) {
+    $gochiusanetstatus = "gochiusa.netはオンラインです。";
+} else {
+    $gochiusanetstatus = "gochiusa.netはオフラインです。";
+}
+
 include 'getMultiCotents.php';
 
 $url_list = array(
@@ -21,6 +39,7 @@ $url_list = array(
     //'https://twitter.com/intent/user?user_id=593144845',
     'https://twitter.com/intent/user?user_id=873775722',
     //'https://twitter.com/intent/user?user_id=2242284524',
+    'https://twitter.com/intent/user?user_id=547406123',
     'https://twitter.com/intent/user?user_id=241113884',
     );
 
@@ -32,6 +51,7 @@ $res[] = $results['https://twitter.com/intent/user?user_id=14157941']['content']
 //$res[] = $results['https://twitter.com/intent/user?user_id=593144845']['content']; //3qgt
 $res[] = $results['https://twitter.com/intent/user?user_id=873775722']['content']; //eai04191
 //$res[] = $results['https://twitter.com/intent/user?user_id=2242284524']['content']; //snovxn
+$res[] = $results['https://twitter.com/intent/user?user_id=547406123']['content']; //su2ca
 $res[] = $results['https://twitter.com/intent/user?user_id=241113884']['content']; //yonex
 
 $pattern1 = '#<title>(.*?) \(@[a-z0-9_]{1,15}\) さんはTwitterを使ってます</title>#i';
@@ -84,6 +104,12 @@ preg_match($pattern1,$res[3],$matches);
 //    $snovxn_name = ('取得できませんでした');
 //  }
 preg_match($pattern1,$res[4],$matches);
+  if (array_key_exists('1', $matches)) {
+    $su2ca_name =  ($matches[1]);
+  } else {
+    $su2ca_name = ('取得できませんでした');
+  }
+preg_match($pattern1,$res[5],$matches);
   if (array_key_exists('1', $matches)) {
     $yonex_name =  ($matches[1]);
   } else {
@@ -138,6 +164,14 @@ if (stristr($eai04191_name, '宇治松千夜') !== false || stristr($eai04191_na
 //    $snovxn_result = '<a href="http://twitter.com/snovxn">'."@snovxn"."</a>"."は条河麻耶ではありません。($snovxn_name)";
 //    $snovxn_menber = '0';
 //}
+if (stristr($su2ca_name, '奈津恵') !== false || stristr($su2ca_name, 'メグ') !== false) {
+    $su2ca_result = '<a href="http://twitter.com/su2ca">'."@su2ca"."</a>"."は奈津恵です。";
+    $su2ca_menber = '1';
+    $score += 16.66;
+} else {
+    $su2ca_result = '<a href="http://twitter.com/su2ca">'."@su2ca"."</a>"."は奈津恵ではありません。($su2ca_name)";
+    $su2ca_menber = '0';
+}
 if (stristr($yonex_name, 'ティッピー') !== false || stristr($yonex_name, 'tippy') !== false) {
     $yonex_result = '<a href="http://twitter.com/yonex">'."@yonex"."</a>"."はティッピーです。";
     $yonex_menber = '1';
@@ -364,7 +398,12 @@ border-color: #5F74AF;
 }
 #alert-megu {
 background-color: #CA354F;
-border-color: #CA354F;
+<?php
+if ($su2ca_menber == '1') {
+  echo "border-color: #CA354F;\n";
+} else {
+}
+?>
 }
 #alert-aoyama {
 background-color: #497487;
@@ -379,6 +418,9 @@ if ($yonex_menber == '1') {
 }
 ?>
 }
+.nav-pills>li {
+  float: none;
+}
 </style>
 
   </head>
@@ -388,7 +430,8 @@ if ($yonex_menber == '1') {
     <div class="container">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><?php echo(date('c')); ?></li>
+          <li role="presentation"><a href="http://gochiusa.net/"><?=$gochiusanetstatus?></a></li>
+          <li role="presentation"><a href="#"><?php echo(date('c')); ?></a></li>
         </ul>
         <h3 class="text-muted">ごちうさ部<br class="br-sp">ステータス</h3>
       </div>
@@ -410,9 +453,9 @@ if ($yonex_menber == '1') {
         <div class="alert alert-gochiusa" id="alert-syaro" role="alert"><img src="syaro.png" width=32px height=32px>いません</div>
         <div class="alert alert-gochiusa" id="alert-chiya" role="alert"><img src="<?=$icon_urls[3]?>" width=32px height=32px><?=$eai04191_result?></div>
         <div class="alert alert-gochiusa" id="alert-maya" role="alert"><img src="maya.png" width=32px height=32px>いません</div>
-        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="megu.png" width=32px height=32px>いません</div>
+        <div class="alert alert-gochiusa" id="alert-megu" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$su2ca_result?></div>
         <div class="alert alert-gochiusa" id="alert-aoyama" role="alert"><img src="aoyama.png" width=32px height=32px>いません</div>
-        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[4]?>" width=32px height=32px><?=$yonex_result?></div>
+        <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[5]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
         <p>time:<?=$strtime?>sec. <a href="http://mizle.net">mizle.net</a> 2014 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
