@@ -12,19 +12,7 @@ $error_alert = <<< EOM
 <div class="alert alert-danger" role="alert">データが取得できませんでした3秒後に再読み込みします。</div>
 EOM;
 
-function httpstatuscode($url){
-    $context = stream_context_create(array(
-        'http' => array('ignore_errors' => true)
-    ));
-    $response = file_get_contents($url, false, $context);
-    preg_match('/HTTP\/1\.[0|1|x] ([0-9]{3})/', $http_response_header[0], $matches);
-    $status_code = $matches[1];
-    if ($status_code != 200){
-        return false;
-    }
-    return $response;
-}
-if (httpstatuscode("http://gochiusa.net/")) {
+if (@file_get_contents("http://gochiusa.net/")){
     $gochiusanetstatus = "gochiusa.netはオンラインです。";
 } else {
     $gochiusanetstatus = "gochiusa.netはオフラインです。";
