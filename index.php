@@ -375,7 +375,7 @@ if ($yonex_menber == '1') {
         <div class="alert alert-gochiusa" id="alert-tippy" role="alert"><img src="<?=$icon_urls[7]?>" width=32px height=32px><?=$yonex_result?></div>
 
       <div class="footer">
-        <p>time:<?=$strtime?>sec. <a href="http://mizle.net">mizle.net</a> 2015 <a href="https://twitter.com/share" class="twitter-share-button" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
+        <p>time:<?=$strtime?>sec. <a href="http://mizle.net">mizle.net</a> 2015 <a href="http://twitter.com/share" class="twitter-share-buttoon" data-text="ごちうさ部ステータス <?php echo $score;?>%" data-via="eai04191">Tweet</a></p>
       </div>
 
     </div> <!-- /container -->
