@@ -383,5 +383,6 @@ if ($yonex_menber == '1') {
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <script type="text/javascript" src="http://jsoon.digitiminimi.com/js/widgetoon.js"></script>
+    <script> widgetoon_main(); </script>
   </body>
 </html>
