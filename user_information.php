@@ -26,19 +26,19 @@ if( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
     $profile_image_url = str_replace( "https", "http", $profile_image_url_https );
 
     $result = array(
-        "id" => $id ,
-        "id_str" => $id ,
+        "id" => $id,
+        "id_str" => $id,
         //"screen_name" => $screen_name[1] ,
-        "name" => $name[1] ,
-        "profile_image_url" => $profile_image_url[1] ,
-        "profile_image_url_https" => $profile_image_url_https[1] ,
+        "name" => $name[1],
+        "profile_image_url" => $profile_image_url[1],
+        "profile_image_url_https" => $profile_image_url_https[1],
     );
 } else {
     $result = array(
-        "message" => "不正なidです。" ,
+        "message" => "不正なidです。",
     );
 }
 
-echo json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) ;
+echo json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES );
 
 ?>
