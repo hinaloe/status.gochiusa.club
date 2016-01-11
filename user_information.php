@@ -28,7 +28,7 @@ if( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
     $result = array(
         "is_exist" => true,
         "id" => $id,
-        "screen_name" => $screen_name[1] ,
+        "screen_name" => $screen_name[1],
         "name" => $name[1],
         "profile_image_url" => $profile_image_url[1],
         "profile_image_url_https" => $profile_image_url_https[1],
