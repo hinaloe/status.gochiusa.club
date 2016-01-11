@@ -13,12 +13,12 @@ if( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
 
     $pattern_name = '#<title>(.*?) \(@[a-z0-9_]{1,15}\) さんはTwitterを使ってます</title>#i';
     $pattern_profile_image_url_https = '<img class="photo" src="(.+?)".+?>';
-    //$pattern_screen_name = '<p><span class="nickname">@[a-z0-9_]{1,15}</span></p>'; // うまくいかないのでまた今度
+    $pattern_screen_name = '#<span class="nickname">@([a-z0-9_]{1,15})</span>#';
     // name
     preg_match( $pattern_name, $html , $name );
     
     // screen_name
-    //preg_match( $pattern_screen_name, $html , $screen_name );
+    preg_match( $pattern_screen_name, $html , $screen_name );
     
     // profile_image_url, profile_image_url_https
     preg_match( $pattern_profile_image_url_https, $html , $profile_image_url_https );
@@ -26,9 +26,9 @@ if( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
     $profile_image_url = str_replace( "https", "http", $profile_image_url_https );
 
     $result = array(
+        "is_exist" => true,
         "id" => $id,
-        "id_str" => $id,
-        //"screen_name" => $screen_name[1] ,
+        "screen_name" => $screen_name[1] ,
         "name" => $name[1],
         "profile_image_url" => $profile_image_url[1],
         "profile_image_url_https" => $profile_image_url_https[1],
@@ -40,5 +40,3 @@ if( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
 }
 
 echo json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES );
-
-?>
