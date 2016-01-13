@@ -7,65 +7,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="eai04191" />
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:700' rel='stylesheet'>
-    <style type="text/css">
-        section,
-        header,
-        footer {
-            text-align: center;
-            margin: 100px 0 0;
-        }
-
-        .forkme {
-            margin: 0;
-            font-size: 10em;
-            font-family: 'Open Sans', sans-serif;
-            
-        }
-        .forkme a {
-            text-decoration: none;
-        }
-
-        header,
-        footer {
-        }
-    </style>
+    <link rel="stylesheet" href="index.css"/>
+    <script src="http://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="index.js"></script>
 </head>
 
 <body>
+    <header>
+        <h1>ごちうさ部ステータス</h1>
+    </header>
     <main>
-
-        <header>
-            <h1>ごちうさ部ステータス</h1>
-            <h1>status.gochiusa.club</h1>
-        </header>
-        <section>
-            <h1>つくりなおす</h1>
-            <p>なんか壊れてたから作り直す　まってて。</p>
+        <section class="graph">
+            <p class="loading">loading<span></span></p>
+            <p class="text hidden">XX.XX%</p>
+            <div class="graph hidden"><div class="fill"></div></div>
         </section>
-        <section>
-            <h1>APIができました</h1>
-            <p><a href="api.php">これ</a></p>
-            <p>APIを好き放題して君だけの<b>ごちうさ部ステータス</b>を作ろう！作ってください。</p>
-            <p class="forkme"><a href="https://github.com/eai04191/status.gochiusa.club">Fork me on GitHub</a></p>
-        </section>
-        <section>
-            <h1>@eai04191へ応援メッセージを送ろう</h1>
-            <a href="https://twitter.com/intent/tweet?screen_name=eai04191&text=%E3%82%B5%E3%82%A4%E3%83%88%E6%9B%B8%E3%81%91%E3%82%AB%E3%82%B9&url=http://status.gochiusa.club" class="twitter-mention-button" data-size="large" data-related="eai04191">Tweet to @eai04191</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </section>
-        <footer>
-            <p>@eai04191</p>        
-        </footer>
-
+        <ul class="members"></ul>
+        <p class="loading">loading<span></span></p>
     </main>
+        <footer>
+            &copy; 2016 <a href="http://gochiusa.club/">Twitterごちうさ部</a><br/>
+            website: <a href="http://mizle.net/">eai04191</a>, images: <a href="http://yaplus.me/">yaplus</a><br/>
+            このサイトはアニメ公式のものではありません。<br/>
+        </footer>
 </body>
-
-<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script>
-    $(function() {
-        $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
-    });
-</script>
-
 </html>
