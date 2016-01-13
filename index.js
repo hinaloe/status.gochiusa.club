@@ -83,7 +83,6 @@
 				);
 		}));
 		
-		console.log(data);
 		$('.members').append($fragment);
 	}
 }();
