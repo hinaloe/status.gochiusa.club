@@ -27,12 +27,54 @@ main{
     border: 0;
 }
 
-.loading{
-	margin: 0 auto 40px;
-	text-align: center;
+.beginFadeIn{
+	opacity: 0;
+    transition:         opacity 1s;
+    -moz-transition:    opacity 1s;
+    -webkit-transition: opacity 1s;
+    -ms-transition:     opacity 1s;
+    -o-transition:      opacity 1s;
 }
 
-.members {
+.readyFadeIn{
+	opacity: 1.0;
+}
+
+.loading{
+    margin: 30px auto 40px;
+    text-align: center;
+}
+
+section.graph .text{
+    margin: 0;
+    padding: 0 0 0 5%;
+    font-size: 2em;
+    text-align: left;
+}
+
+div.graph{
+    margin: 0 auto;
+    width: 90%;
+    height: 30px;
+    border-radius: 5px;
+    background-color: #ddd;
+    overflow:hidden;
+}
+
+div.graph .fill{
+    margin: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 0;
+    background-color: #aaf;
+    transition:         width 0.2s ease 1s;
+    -moz-transition:    width 0.2s ease 1s;
+    -webkit-transition: width 0.2s ease 1s;
+    -ms-transition:     width 0.2s ease 1s;
+    -o-transition:      width 0.2s ease 1s;
+}
+
+.members, section.graph {
     margin: 0 auto 40px;
     padding: 10px 0 0;
     border: 0;
@@ -40,9 +82,9 @@ main{
     text-align: center;
 }
 .members>li{
-	width: 80%;
-	height: 100px;
-	display: inline-block;
+    width: 80%;
+    height: 100px;
+    display: inline-block;
 }
 .members li.chino {
     background-color: rgba(78,150,255,0.5);
@@ -102,7 +144,7 @@ main{
 }
 
 .member{
-	text-align: left;
+    text-align: left;
 }
 .member li {
     margin: 5px 0 0;
@@ -136,16 +178,22 @@ main{
     color: #000;
     content: "×";
 }
+.member .check.notexist:after{
+    color: #00f;
+    content: "？";
+}
 .member li.text{
-	width : -webkit-calc(100% - 160px);
-	width: calc(100% - 160px);
+    width : -webkit-calc(100% - 160px);
+    width: calc(100% - 160px);
 }
 .member a{
     color: #fff;
     font-weight: bold;
 }
 .member li.text{
-	box-sizing: border-box;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    line-height: 1.5;
 }
 footer {
     margin: 0;
@@ -167,50 +215,58 @@ footer a {
 }
 
 @media screen and (max-width: 359px) {
-    .members {
+    .members, section.graph {
         width: 240px;
     }
-	.members>li{
-		height: 200px;
-	}
-	.member li.icon{
-		width : -webkit-calc(100% - 70px);
-		width: calc(100% - 70px);
-		text-align: center;
-	}
-	.member li.text{
-		width: 100%;
-		height: 100px;
-		text-align: center;
-		padding: 0 10px;
-	}
+    .members>li{
+        height: 200px;
+    }
+    .member li.icon{
+        width : -webkit-calc(100% - 70px);
+        width: calc(100% - 70px);
+        text-align: center;
+    }
+    .member li.text{
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        padding: 0 10px;
+    }
 }
 @media screen and (min-width: 360px) and (max-width: 599px) {
-    .members {
+    .members, section.graph {
         width: 360px;
     }
-	.members>li{
-		height: 200px;
-	}
-	.member li.icon{
-		width : -webkit-calc(100% - 140px);
-		width: calc(100% - 140px);
-		text-align: center;
-	}
-	.member li.text{
-		width: 100%;
-		height: 100px;
-		text-align: center;
-		padding: 0 10px;
-	}
+    .members>li{
+        height: 200px;
+    }
+    .member li.icon{
+        width : -webkit-calc(100% - 140px);
+        width: calc(100% - 140px);
+        text-align: center;
+    }
+    .member li.text{
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        padding: 0 10px;
+    }
 }
 @media screen and (min-width: 600px) and (max-width: 1079px) {
-    .members {
+    .members, section.graph {
         width: 600px;
     }
 }
 @media screen and (min-width: 1080px) {
-    .members {
+    .members, section.graph {
         width: 1080px;
     }
+}
+
+.hidden{
+	height: 0;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+    opacity: 0;
 }
