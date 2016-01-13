@@ -123,6 +123,9 @@ div.graph .fill{
     color: #43211a;
     text-decoration: none;
 }
+.members a.icon.disabled {
+	cursor: default;
+}
 .members a.icon img {
     margin: 0;
     padding: 0;
@@ -141,6 +144,9 @@ div.graph .fill{
 }
 .members a.icon img:hover {
     box-shadow: 0 3px 10px 5px rgba(255,255,255,0.5);
+}
+.members a.icon.disabled img:hover {
+    box-shadow: none;
 }
 
 .member{
