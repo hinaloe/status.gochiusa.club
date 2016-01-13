@@ -18,6 +18,7 @@
 			
 			if(res.status !== 'success'){
 				$('.loading').text(res.message);
+				return;
 			}
 			
 			AjaxDoneCallback(res.data);
@@ -40,6 +41,7 @@
 		$('section.graph .fill').css('width', data.total_percent + '%');
 		
 		// メンバー表示
+		var htmlSpecialChars = HtmlSpecialChars();
 		var members = data.members;
 		var $fragment = $(document.createDocumentFragment())
 		var names = {
@@ -64,7 +66,7 @@
 				||
 				('http://gochiusa.club/img/' + ((name==='megu') ? 'megumi' : name) + '.png');
 			var charaName = names[name];
-			var altName   = (isExist && member.name) || charaName;
+			var altName   = (isExist && htmlSpecialChars(member.name)) || charaName;
 			var text      = (isExist && ('<a target="_blank" href="' + profileUri + '">@' + member.screen_name + '</a>&nbsp;は' + ((charaName===altName) ? (charaName + 'です。') : (charaName + 'ではありません。(' + altName + ')'))))
 				||
 				(charaName + 'はいません。');
@@ -84,5 +86,21 @@
 		}));
 		
 		$('.members').append($fragment);
+	}
+	
+	function HtmlSpecialChars(list){
+		list = list || {
+			'&': '&amp;',
+			'\x27': '&#39;',
+			'"': '&quot;',
+			'<': '&lt;',
+			'>': '&gt;'
+		};
+		var reg = new RegExp('['+Object.keys(list)+']','g');
+		return function(str){
+			str.replace(reg, function($0){
+				return list[$0];
+			});
+		}
 	}
 }();
