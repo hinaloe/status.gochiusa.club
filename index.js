@@ -18,6 +18,7 @@
 			
 			if(res.status !== 'success'){
 				$('.loading').text(res.message);
+				return;
 			}
 			
 			AjaxDoneCallback(res.data);
@@ -40,6 +41,7 @@
 		$('section.graph .fill').css('width', data.total_percent + '%');
 		
 		// メンバー表示
+		var h = htmlSpecialChars();
 		var members = data.members;
 		var $fragment = $(document.createDocumentFragment())
 		var names = {
@@ -60,11 +62,11 @@
 			var member     = members[name];
 			var checkName  = (isExist && (member.is_hopping ? 'correct' : 'incorrect')) || 'notexist';
 			var profileUri = (isExist && 'https://twitter.com/' + member.screen_name) || '#';
-			var iconSrc    = (isExist && member.profile_image_url_https.replace(/_normal(\.(png|jpg))$/,'$1'))
+			var iconSrc    = (isExist && member.profile_image_url_https.replace(/_normal(\.(png|jpg))$/,'_200x200$1'))
 				||
 				('http://gochiusa.club/img/' + ((name==='megu') ? 'megumi' : name) + '.png');
 			var charaName = names[name];
-			var altName   = (isExist && member.name) || charaName;
+			var altName   = (isExist && h(member.name)) || charaName;
 			var text      = (isExist && ('<a target="_blank" href="' + profileUri + '">@' + member.screen_name + '</a>&nbsp;は' + ((charaName===altName) ? (charaName + 'です。') : (charaName + 'ではありません。(' + altName + ')'))))
 				||
 				(charaName + 'はいません。');
@@ -84,5 +86,21 @@
 		}));
 		
 		$('.members').append($fragment);
+	}
+	
+	function htmlSpecialChars(list){
+		list = list || {
+			'&': '&amp;',
+			'\x27': '&#39;',
+			'"': '&quot;',
+			'<': '&lt;',
+			'>': '&gt;'
+		};
+		var reg = new RegExp('['+Object.keys(list)+']','g');
+		return function(str){
+			return str.replace(reg, function($0){
+				return list[$0];
+			});
+		}
 	}
 }();
