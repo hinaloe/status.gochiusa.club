@@ -17,6 +17,7 @@ $member_list = array(
     "2439755767", // シャロ @akouryy1
     "2239375134", // マヤ　 @aayh
     "547406123",  // メグ　 @su2ca
+    "463401611",  // モカ　 @kazukiti_28
 );
 
 $member_count = count($member_list);
@@ -52,58 +53,73 @@ $member_chiya = json_decode( $results[3]["content"], true );
 $member_syaro = json_decode( $results[4]["content"], true );
 $member_maya = json_decode( $results[5]["content"], true );
 $member_megu = json_decode( $results[6]["content"], true );
+$member_mocha = json_decode( $results[7]["content"], true );
 
 
 // ジャッジ
 $hopping_count = 0;
 
 if( strpos( $member_cocoa["name"], "心愛") !== false or strpos( $member_cocoa["name"], "ココア" !== false) ){
-    $member_cocoa["is_hopping"] = true;    $hopping_count++;
+    $member_cocoa["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_cocoa["is_hopping"] = false;
 }
 
 if( strpos( $member_chino["name"], "智乃") !== false or strpos( $member_chino["name"], "チノ" !== false) ){
-    $member_chino["is_hopping"] = true;    $hopping_count++;
+    $member_chino["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_chino["is_hopping"] = false;
 }
 
 if( strpos( $member_rize["name"], "理世") !== false or strpos( $member_rize["name"], "リゼ" !== false) ){
-    $member_rize["is_hopping"] = true;    $hopping_count++;
+    $member_rize["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_rize["is_hopping"] = false;
 }
 
 if( strpos( $member_chiya["name"], "千夜") !== false ){
-    $member_chiya["is_hopping"] = true;    $hopping_count++;
+    $member_chiya["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_chiya["is_hopping"] = false;
 }
 
 if( strpos( $member_syaro["name"], "紗路") !== false or strpos( $member_syaro["name"], "シャロ" !== false) ){
-    $member_syaro["is_hopping"] = true;    $hopping_count++;
+    $member_syaro["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_syaro["is_hopping"] = false;
 }
 
 if( strpos( $member_maya["name"], "麻耶") !== false or strpos( $member_maya["name"], "マヤ" !== false) ){
-    $member_maya["is_hopping"] = true;    $hopping_count++;
+    $member_maya["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_maya["is_hopping"] = false;
 }
 
 if( strpos( $member_megu["name"], "恵") !== false or strpos( $member_megu["name"], "メグ" !== false) ){
-    $member_megu["is_hopping"] = true;    $hopping_count++;
+    $member_megu["is_hopping"] = true;
+    $hopping_count++;
 }else{
     $member_megu["is_hopping"] = false;
+}
+
+if( strpos( $member_mocha["name"], "モカ") !== false ){
+    $member_mocha["is_hopping"] = true;
+    $hopping_count++;
+}else{
+    $member_mocha["is_hopping"] = false;
 }
 
 
 // 1人当たりの数
 $percentage_per_member = floor( 100 / $member_count );
 
-// ☝の余り これいる？
+// ?の余り これいる？
 $percentage_per_member_remainder = 100 - $percentage_per_member * $member_count;
 
 $total_percent = $percentage_per_member * $hopping_count;
@@ -131,6 +147,7 @@ $result = array(
             "syaro" => $member_syaro,
             "maya" => $member_maya,
             "megu" => $member_megu,
+            "mocha" => $member_mocha,
             "hopping_count" => $hopping_count,
             "is_all_hopping" => $is_all_hopping
         )
