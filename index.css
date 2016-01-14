@@ -46,6 +46,7 @@ main {
 }
 
 div.tweetBtn {
+    margin: 0 auto 5px;
     text-align: right;
 }
 
@@ -225,7 +226,7 @@ footer a {
 }
 
 @media screen and (max-width: 359px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 240px;
     }
     .members>li {
@@ -244,7 +245,7 @@ footer a {
     }
 }
 @media screen and (min-width: 360px) and (max-width: 599px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 360px;
     }
     .members>li {
@@ -263,12 +264,12 @@ footer a {
     }
 }
 @media screen and (min-width: 600px) and (max-width: 1079px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 600px;
     }
 }
 @media screen and (min-width: 1080px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 1080px;
     }
 }
