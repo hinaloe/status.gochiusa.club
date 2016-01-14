@@ -10,6 +10,9 @@
 	
 	window.addEventListener('DOMContentLoaded', function(eve){
 		loadingTimerCallback();
+		
+		$(document).on('click', 'a.disabled', disabledLinkEvent);
+		
 		$.ajax({
 			url: 'api.php',
 			dataType: 'json',
@@ -75,7 +78,11 @@
 				.append($('<ul class="member"></ul>')
 					.append($('<li class="check"></li>').addClass(checkName))
 					.append($('<li class="icon"></li>')
-						.append($('<a target="_blank" class="icon"></a>').attr('href',profileUri)
+						.append($('<a class="icon"></a>').attr({
+								'href': profileUri,
+								'target': (isExist) ? '_blank' : '_self',
+							})
+							.addClass(isExist ? '' : 'disabled')
 							.append($('<img>').attr({
 									'src': iconSrc,
 									'alt': altName,
@@ -86,6 +93,10 @@
 		}));
 		
 		$('.members').append($fragment);
+	}
+	
+	function disabledLinkEvent(eve){
+		return false;
 	}
 	
 	function htmlSpecialChars(list){
