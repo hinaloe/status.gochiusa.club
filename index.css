@@ -141,11 +141,11 @@ div.graph .fill {
     border: solid 2px #fff;
     border-radius: 10px;
     vertical-align: middle;
-    transition: color 1s, box-shadow 0.2s;
-    -moz-transition: color 1s, box-shadow 0.2s;
+    transition:         color 1s, box-shadow 0.2s;
+    -moz-transition:    color 1s, box-shadow 0.2s;
     -webkit-transition: color 1s, box-shadow 0.2s;
-    -ms-transition: color 1s, box-shadow 0.2s;
-    -o-transition: color 1s, box-shadow 0.2s;
+    -ms-transition:     color 1s, box-shadow 0.2s;
+    -o-transition:      color 1s, box-shadow 0.2s;
 }
 .members a.icon img:hover {
     box-shadow: 0 3px 10px 5px rgba(255,255,255,0.5);
@@ -194,7 +194,7 @@ div.graph .fill {
     content: "？";
 }
 .member li.text {
-    width : -webkit-calc(100% - 160px);
+    width: -webkit-calc(100% - 160px);
     width: calc(100% - 160px);
 }
 .member a {
@@ -215,11 +215,11 @@ footer {
     z-index: 1111;
     line-height: 25px;
     text-align: center;
-    transition: opacity 1s 1s;
-    -moz-transition: opacity 1s 1s;
+    transition:         opacity 1s 1s;
+    -moz-transition:    opacity 1s 1s;
     -webkit-transition: opacity 1s 1s;
-    -ms-transition: opacity 1s 1s;
-    -o-transition: opacity 1s 1s;
+    -ms-transition:     opacity 1s 1s;
+    -o-transition:      opacity 1s 1s;
 }
 footer a {
     color: inherit;
