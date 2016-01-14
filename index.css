@@ -21,14 +21,14 @@ ul {
     list-style-type: none;
     padding: 0;
 }
-main{
+main {
     margin: 0;
     padding: 0;
     border: 0;
 }
 
-.beginFadeIn{
-	opacity: 0;
+.beginFadeIn {
+    opacity: 0;
     transition:         opacity 1s;
     -moz-transition:    opacity 1s;
     -webkit-transition: opacity 1s;
@@ -36,23 +36,28 @@ main{
     -o-transition:      opacity 1s;
 }
 
-.readyFadeIn{
-	opacity: 1.0;
+.readyFadeIn {
+    opacity: 1.0;
 }
 
-.loading{
+.loading {
     margin: 30px auto 40px;
     text-align: center;
 }
 
-section.graph .text{
+div.tweetBtn {
+    margin: 0 auto 5px;
+    text-align: right;
+}
+
+section.graph .text {
     margin: 0;
     padding: 0 0 0 5%;
     font-size: 2em;
     text-align: left;
 }
 
-div.graph{
+div.graph {
     margin: 0 auto;
     width: 90%;
     height: 30px;
@@ -61,7 +66,7 @@ div.graph{
     overflow:hidden;
 }
 
-div.graph .fill{
+div.graph .fill {
     margin: 0;
     width: 0%;
     height: 100%;
@@ -81,7 +86,7 @@ div.graph .fill{
     border-top: 2px dotted #c7a666;
     text-align: center;
 }
-.members>li{
+.members>li {
     width: 80%;
     height: 100px;
     display: inline-block;
@@ -124,7 +129,7 @@ div.graph .fill{
     text-decoration: none;
 }
 .members a.icon.disabled {
-	cursor: default;
+    cursor: default;
 }
 .members a.icon img {
     margin: 0;
@@ -149,7 +154,7 @@ div.graph .fill{
     box-shadow: none;
 }
 
-.member{
+.member {
     text-align: left;
 }
 .member li {
@@ -158,7 +163,7 @@ div.graph .fill{
     display: inline-block;
     vertical-align: middle;
 }
-.member .check{
+.member .check {
     font-size: 3.5em;
     font-weight: bold;
     text-align: center;
@@ -176,27 +181,27 @@ div.graph .fill{
         -2px  2px 0.5px #fff,
          2px  2px 0.5px #fff;
 }
-.member .check.correct:after{
+.member .check.correct:after {
     color: #f00;
     content: "○";
 }
-.member .check.incorrect:after{
+.member .check.incorrect:after {
     color: #000;
     content: "×";
 }
-.member .check.notexist:after{
+.member .check.notexist:after {
     color: #00f;
     content: "？";
 }
-.member li.text{
+.member li.text {
     width : -webkit-calc(100% - 160px);
     width: calc(100% - 160px);
 }
-.member a{
+.member a {
     color: #fff;
     font-weight: bold;
 }
-.member li.text{
+.member li.text {
     box-sizing: border-box;
     font-size: 1.2em;
     line-height: 1.5;
@@ -221,18 +226,18 @@ footer a {
 }
 
 @media screen and (max-width: 359px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 240px;
     }
-    .members>li{
+    .members>li {
         height: 200px;
     }
-    .member li.icon{
+    .member li.icon {
         width : -webkit-calc(100% - 70px);
         width: calc(100% - 70px);
         text-align: center;
     }
-    .member li.text{
+    .member li.text {
         width: 100%;
         height: 100px;
         text-align: center;
@@ -240,18 +245,18 @@ footer a {
     }
 }
 @media screen and (min-width: 360px) and (max-width: 599px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 360px;
     }
-    .members>li{
+    .members>li {
         height: 200px;
     }
-    .member li.icon{
+    .member li.icon {
         width : -webkit-calc(100% - 140px);
         width: calc(100% - 140px);
         text-align: center;
     }
-    .member li.text{
+    .member li.text {
         width: 100%;
         height: 100px;
         text-align: center;
@@ -259,20 +264,20 @@ footer a {
     }
 }
 @media screen and (min-width: 600px) and (max-width: 1079px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 600px;
     }
 }
 @media screen and (min-width: 1080px) {
-    .members, section.graph {
+    .members, section.graph, div.tweetBtn {
         width: 1080px;
     }
 }
 
-.hidden{
-	height: 0;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+.hidden {
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     opacity: 0;
 }

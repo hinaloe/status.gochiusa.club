@@ -35,10 +35,17 @@
 			clearTimeout(loadingTimerId);
 			
 			$('.loading').text('データの取得に失敗しました…');
+		}).always(function(){
+			// ツイートボタンの生成
+			createTweetBtn();
 		});
 	},false);
 	
 	function AjaxDoneCallback(data){
+		// ツイートボタンのパーセント表記の更新
+		// ※jQueryの仕様によりネイティブDOMを使用 => https://w3g.jp/blog/jquery-data-attr-cache
+		$('div.tweetBtn>a')[0].setAttribute('data-text','ごちうさ部ステータス 現在' + data.total_percent.toFixed(1) + '%');
+		
 		// グラフ表示
 		$('section.graph .text').text(data.total_percent.toFixed(1) + '%');
 		$('section.graph .fill').css('width', data.total_percent + '%');
