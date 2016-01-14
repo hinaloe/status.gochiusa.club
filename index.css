@@ -53,24 +53,31 @@ div.tweetBtn {
 section.graph .text {
     margin: 0;
     padding: 0 0 0 5%;
+    color: #778CC7;
     font-size: 2em;
     text-align: left;
 }
 
 div.graph {
     margin: 0 auto;
+    padding: 1px;
     width: 90%;
     height: 30px;
     border-radius: 5px;
     background-color: #ddd;
     overflow:hidden;
+    box-shadow:
+         1px  1px 3px #ccc inset,
+         1px -1px 3px #ccc inset,
+        -1px  1px 3px #ccc inset,
+        -1px -1px 3px #ccc inset;
 }
 
 div.graph .fill {
     margin: 0;
     width: 0%;
     height: 100%;
-    border-radius: 0;
+    border-radius: 5px;
     background-color: #aaf;
     transition:         width 0.2s ease 1s;
     -moz-transition:    width 0.2s ease 1s;
@@ -196,6 +203,7 @@ div.graph .fill {
 .member li.text {
     width: -webkit-calc(100% - 160px);
     width: calc(100% - 160px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)
 }
 .member a {
     color: #fff;
