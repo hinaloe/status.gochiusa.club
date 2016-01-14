@@ -28,7 +28,7 @@ main {
 }
 
 .beginFadeIn {
-	opacity: 0;
+    opacity: 0;
     transition:         opacity 1s;
     -moz-transition:    opacity 1s;
     -webkit-transition: opacity 1s;
@@ -37,7 +37,7 @@ main {
 }
 
 .readyFadeIn {
-	opacity: 1.0;
+    opacity: 1.0;
 }
 
 .loading {
@@ -124,7 +124,7 @@ div.graph .fill {
     text-decoration: none;
 }
 .members a.icon.disabled {
-	cursor: default;
+    cursor: default;
 }
 .members a.icon img {
     margin: 0;
@@ -270,9 +270,9 @@ footer a {
 }
 
 .hidden {
-	height: 0;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
     opacity: 0;
 }
