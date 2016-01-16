@@ -46,12 +46,17 @@ main {
 }
 
 div.tweetBtn {
+    min-height: 30px;
     margin: 0 auto 5px;
     text-align: right;
 }
 
+div.tweetBtn>* {
+    margin: 0 5%;
+}
+
 section.graph .text {
-    margin: 0;
+    margin: 10px 0 0 0;
     padding: 0 0 0 5%;
     color: #778CC7;
     font-size: 2em;
@@ -86,46 +91,46 @@ div.graph .fill {
     -o-transition:      width 0.2s ease 1s;
 }
 
-.members, section.graph {
+section.members, section.graph {
     margin: 0 auto 40px;
     padding: 10px 0 0;
     border: 0;
     border-top: 2px dotted #c7a666;
     text-align: center;
 }
-.members>li {
-    width: 80%;
+ul.members>li {
+    width: 90%;
     height: 100px;
     display: inline-block;
 }
-.members li.chino {
+ul.members li.chino {
     background-color: rgba(78,150,255,0.5);
 }
-.members li.cocoa {
+ul.members li.cocoa {
     background-color: rgba(245,164,190,0.75);
 }
-.members li.rize {
+ul.members li.rize {
     background-color: rgba(148,104,237,0.5);
 }
-.members li.chiya {
+ul.members li.chiya {
     background-color: rgba(141,179,110,0.5);
 }
-.members li.syaro {
+ul.members li.syaro {
     background-color: rgba(243,215,160,0.75);
 }
-.members li.maya {
+ul.members li.maya {
     background-color: rgba(95,116,175,0.5);
 }
-.members li.megu {
+ul.members li.megumi {
     background-color: rgba(202,53,79,0.5);
 }
-.members li.mocha {
+ul.members li.mocha {
     background-color: rgba(233,145,116,0.5);
 }
-.members li.tippy {
+ul.members li.tippy {
     background-color: rgba(141,150,208,0.5);
 }
-.members a.icon {
+ul.members a.icon {
     display: inline-block;
     margin: 5px;
     padding: 0;
@@ -135,10 +140,10 @@ div.graph .fill {
     color: #43211a;
     text-decoration: none;
 }
-.members a.icon.disabled {
+ul.members a.icon.disabled {
     cursor: default;
 }
-.members a.icon img {
+ul.members a.icon img {
     margin: 0;
     padding: 0;
     border: 0;
@@ -154,10 +159,10 @@ div.graph .fill {
     -ms-transition:     color 1s, box-shadow 0.2s;
     -o-transition:      color 1s, box-shadow 0.2s;
 }
-.members a.icon img:hover {
+ul.members a.icon img:hover {
     box-shadow: 0 3px 10px 5px rgba(255,255,255,0.5);
 }
-.members a.icon.disabled img:hover {
+ul.members a.icon.disabled img:hover {
     box-shadow: none;
 }
 
@@ -234,11 +239,11 @@ footer a {
 }
 
 @media screen and (max-width: 359px) {
-    .members, section.graph, div.tweetBtn {
+    section.members, section.graph, div.tweetBtn {
         width: 240px;
     }
-    .members>li {
-        height: 200px;
+    ul.members>li {
+        height: 250px;
     }
     .member li.icon {
         width : -webkit-calc(100% - 70px);
@@ -253,10 +258,10 @@ footer a {
     }
 }
 @media screen and (min-width: 360px) and (max-width: 599px) {
-    .members, section.graph, div.tweetBtn {
+    section.members, section.graph, div.tweetBtn {
         width: 360px;
     }
-    .members>li {
+    ul.members>li {
         height: 200px;
     }
     .member li.icon {
@@ -272,20 +277,20 @@ footer a {
     }
 }
 @media screen and (min-width: 600px) and (max-width: 1079px) {
-    .members, section.graph, div.tweetBtn {
+    section.members, section.graph, div.tweetBtn {
         width: 600px;
     }
 }
 @media screen and (min-width: 1080px) {
-    .members, section.graph, div.tweetBtn {
+    section.members, section.graph, div.tweetBtn {
         width: 1080px;
     }
 }
 
 .hidden {
-    height: 0;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    opacity: 0;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
 }
