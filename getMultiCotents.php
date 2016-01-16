@@ -18,8 +18,8 @@ function getMultiContents( $url_list ) {
     foreach( $url_list as $url ) {
         $ch_list[$url] = curl_init($url);
         curl_setopt($ch_list[$url], CURLOPT_RETURNTRANSFER, TRUE);
-        curl_setopt($ch_list[$url], CURLOPT_TIMEOUT, 1);  // タイムアウト秒数を指定
-        curl_setopt($ch_list[$url],CURLOPT_SSL_VERIFYPEER,false);
+        curl_setopt($ch_list[$url], CURLOPT_TIMEOUT, 5);  // タイムアウト秒数を指定
+        curl_setopt($ch_list[$url], CURLOPT_SSL_VERIFYPEER,false);
         curl_multi_add_handle($mh, $ch_list[$url]);
     }
 

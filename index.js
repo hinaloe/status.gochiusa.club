@@ -61,7 +61,7 @@
 			'chiya': '宇治松千夜',
 			'syaro': '桐間紗路',
 			'maya': '条河麻耶',
-			'megu': '奈津恵',
+			'megumi': '奈津恵',
 			'mocha': '保登モカ',
 			'tippy': 'ティッピー',
 		}
@@ -74,7 +74,7 @@
 			var profileUri = (isExist && 'https://twitter.com/' + member.screen_name) || '#';
 			var iconSrc    = (isExist && member.profile_image_url_https.replace(/_normal(\.(png|jpg))$/,'_200x200$1'))
 				||
-				('http://gochiusa.club/img/' + ((name==='megu') ? 'megumi' : name) + '.png');
+				('http://gochiusa.club/img/' + name + '.png');
 			var charaName = names[name];
 			var altName   = (isExist && h(member.name)) || charaName;
 			var text      = (isExist && ('<a target="_blank" href="' + profileUri + '">@' + member.screen_name + '</a>&nbsp;は' + ((charaName===altName) ? (charaName + 'です。') : (charaName + 'ではありません。(' + altName + ')'))))
@@ -99,7 +99,7 @@
 				);
 		}));
 		
-		$('.members').append($fragment);
+		$('ul.members').append($fragment);
 	}
 	
 	function disabledLinkEvent(eve){
