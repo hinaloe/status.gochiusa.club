@@ -53,24 +53,31 @@ div.tweetBtn {
 section.graph .text {
     margin: 0;
     padding: 0 0 0 5%;
+    color: #778CC7;
     font-size: 2em;
     text-align: left;
 }
 
 div.graph {
     margin: 0 auto;
+    padding: 1px;
     width: 90%;
     height: 30px;
     border-radius: 5px;
     background-color: #ddd;
     overflow:hidden;
+    box-shadow:
+         1px  1px 3px #ccc inset,
+         1px -1px 3px #ccc inset,
+        -1px  1px 3px #ccc inset,
+        -1px -1px 3px #ccc inset;
 }
 
 div.graph .fill {
     margin: 0;
     width: 0%;
     height: 100%;
-    border-radius: 0;
+    border-radius: 5px;
     background-color: #aaf;
     transition:         width 0.2s ease 1s;
     -moz-transition:    width 0.2s ease 1s;
@@ -141,11 +148,11 @@ div.graph .fill {
     border: solid 2px #fff;
     border-radius: 10px;
     vertical-align: middle;
-    transition: color 1s, box-shadow 0.2s;
-    -moz-transition: color 1s, box-shadow 0.2s;
+    transition:         color 1s, box-shadow 0.2s;
+    -moz-transition:    color 1s, box-shadow 0.2s;
     -webkit-transition: color 1s, box-shadow 0.2s;
-    -ms-transition: color 1s, box-shadow 0.2s;
-    -o-transition: color 1s, box-shadow 0.2s;
+    -ms-transition:     color 1s, box-shadow 0.2s;
+    -o-transition:      color 1s, box-shadow 0.2s;
 }
 .members a.icon img:hover {
     box-shadow: 0 3px 10px 5px rgba(255,255,255,0.5);
@@ -194,8 +201,9 @@ div.graph .fill {
     content: "？";
 }
 .member li.text {
-    width : -webkit-calc(100% - 160px);
+    width: -webkit-calc(100% - 160px);
     width: calc(100% - 160px);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5)
 }
 .member a {
     color: #fff;
@@ -215,11 +223,11 @@ footer {
     z-index: 1111;
     line-height: 25px;
     text-align: center;
-    transition: opacity 1s 1s;
-    -moz-transition: opacity 1s 1s;
+    transition:         opacity 1s 1s;
+    -moz-transition:    opacity 1s 1s;
     -webkit-transition: opacity 1s 1s;
-    -ms-transition: opacity 1s 1s;
-    -o-transition: opacity 1s 1s;
+    -ms-transition:     opacity 1s 1s;
+    -o-transition:      opacity 1s 1s;
 }
 footer a {
     color: inherit;
