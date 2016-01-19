@@ -99,7 +99,7 @@ function get_users_info( $ids ) {
 		curl_close( $ch );
 
 		if ( $httpCode === 200 ) {
-			$pattern_name                    = '#<title>(.*?)\s?\(@[a-z0-9_]{1,15}\)\s?さん.*</title>#i';
+			$pattern_name                    = '#<title>(.*?)\s?\(@[a-z0-9_]{1,15}\)\s?[^<]+</title>#i';
 			$pattern_profile_image_url_https = '<img class="photo" src="(.+?)".+?>';
 			$pattern_screen_name             = '#<span class="nickname">@([a-z0-9_]{1,15})</span>#';
 			// name
