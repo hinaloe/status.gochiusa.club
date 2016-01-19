@@ -15,7 +15,7 @@ if( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
     curl_setopt($ch, CURLOPT_TIMEOUT, 5);  // タイムアウト秒数を指定
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,false);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept-Language: ja'));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept-Language', 'ja'));
     $html = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
