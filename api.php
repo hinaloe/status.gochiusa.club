@@ -68,35 +68,20 @@ $member_info_list = array();
 foreach( $user_info_list as $user_info ){
     // 正しく読み込まれているか
     if( $user_info["http_code"] !== 200 ){
-        $result = array(
-            "status" => "error",
-            "data" => null,
-            "message" => "ユーザー情報の読み込みに失敗しました。",
-        );
-        die( json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) );
+        error_die( "ユーザー情報の読み込みに失敗しました。");
     }
-    
+
     // JSON配列型でデコード
     $member_info = @json_decode( $user_info["content"], true );
     
     // JSONの解釈に成功したか
     if( ($member_info === null) && (json_last_error() !== JSON_ERROR_NONE) ){
-        $result = array(
-            "status" => "error",
-            "data" => null,
-            "message" => "ユーザー情報の読み込みに失敗しました。",
-        );
-        die( json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) );
+        error_die( "ユーザー情報の読み込みに失敗しました。");
     }
     
     // 何らかのエラーメッセージを吐いたか
-    if( isset( $member_info["message"] ) ){
-        $result = array(
-            "status" => "error",
-            "data" => null,
-            "message" => "ユーザー情報の読み込みに失敗しました。(".$member_info["message"].")",
-        );
-        die( json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) );
+    if( isset( $member_info["message"] ) ) {
+        error_die( "ユーザー情報の読み込みに失敗しました。(" . $member_info["message"] . ")" );
     }
     
     // 名前の一部分がごちうさキャラの名前かどうかを確認する
@@ -143,4 +128,13 @@ $result = array(
 
 echo json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) ;
 
-?>
+
+function error_die( $message, $status = 'error', $data = null, $http_code = 500 ) {
+    http_response_code( $http_code );
+    $result = array(
+        "status" => $status,
+        'data' => $data,
+        'message' => $message,
+    );
+    die( json_encode( $result , JSON_PRETTY_PRINT|JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES ) );
+}
