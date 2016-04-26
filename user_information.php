@@ -19,5 +19,5 @@ if ( isset( $_GET["id"] ) && is_numeric( $_GET["id"] ) ) {
 	}
 } else {
 	http_response_code( 500 );
-	json_encode( array( "message" => "不正なidです。" ), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
+	echo json_encode( array( "message" => "不正なidです。" ), JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES );
 }
